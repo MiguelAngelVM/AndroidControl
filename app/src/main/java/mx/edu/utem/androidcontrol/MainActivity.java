@@ -44,7 +44,7 @@ public class MainActivity extends Activity  implements SensorEventListener{
     Button btnPower;
 
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-    private static String address = "F8:E0:79:B5:88:5A"; // 98:D3:31:30:3A:38
+    private static String address = "F8:E0:79:B5:88:5A"; // 98:D3:31:30:3A:38   F8:E0:79:B5:88:5A
 
 
     static private ConnectedThread mConnectedThread;
@@ -246,6 +246,24 @@ public class MainActivity extends Activity  implements SensorEventListener{
     public void power(View view)
     {
         onResume();
+    }
+
+
+    public void frenoDeMano(View view)
+    {
+        try {
+            getmConnectedThread().write("5");
+            Thread.sleep(200);
+            getmConnectedThread().write("5");
+            Thread.sleep(200);
+            getmConnectedThread().write("6");
+            Thread.sleep(200);
+            getmConnectedThread().write("7");
+            Thread.sleep(200);
+            getmConnectedThread().write("8");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 
